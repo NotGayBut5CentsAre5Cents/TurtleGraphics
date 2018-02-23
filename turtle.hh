@@ -189,33 +189,24 @@ public:
 class PolygonDrawer {
     Turtle* turtle_;
 
-    std::ostream& out_;
-    std::string format_; /// PS or SVG
-    std::string type_; /// STAR OR ?NORMAL? POLYGON
-
     double internal_angle_;
     double external_angle_;
-    double width_of_canvas_;
-    double height_of_canvas_;
+    double width_;
+    double height_;
 
-    int number_of_sides_;
+    int num_of_sides_;
 
-    void draw_star();
-    void draw_polygon();
-
-protected:
     void calculate_internal_angle();
     void calculate_external_angle();
     PolygonDrawer& set_num_of_sides(int num_of_sides);
-    PolygonDrawer& draw_axis(int row);
-    PolygonDrawer& draw_shape();
+
 public:
     PolygonDrawer();
-    PolygonDrawer(int number_of_sides, std::string format, std::string type, double width, double height, std::ostream& out);
-    //~PolygonDrawer();
+    PolygonDrawer(int num_of_sides, Turtle* turtle);
+    ~PolygonDrawer();
 
     int get_num_of_sides() const {
-        return number_of_sides_;
+        return num_of_sides_;
     }
 
     double get_internal_angle() const {
@@ -226,13 +217,9 @@ public:
         return external_angle_;
     }
 
-    std::string get_format() const {
-        return format_;
-    }
 
-    std::string get_type() const {
-        return type_;
-    }
-
+    PolygonDrawer& draw_grid(int depth);///колко да е подробен грида /// num_of_sides за звездата се има предвид на
+    PolygonDrawer& draw_star(Point center, int length);              /// страните на regular polygona вписан в нея
+    PolygonDrawer& draw_polygon(Point center, int length); ///regular polygon
 };
 #endif
