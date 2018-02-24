@@ -1,4 +1,5 @@
 #include "turtle.cc"
+#include "svgturtle.cc"
 #include <cmath>
 #include <sstream>
 #include <fstream>
@@ -8,7 +9,7 @@ void sierpinski_half(double, double, int);
 void sierpinski(double, double, int);
 /*
 
-Адаптация на Logo кода от тук, за Sierpinski
+Koda e adaptiran ot Logo za Sierpinski ot tuk
 -> https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Sierpinski_curve.html
 */
 int main(int argc, char* argv[])

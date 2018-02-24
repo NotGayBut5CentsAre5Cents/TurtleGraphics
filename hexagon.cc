@@ -20,5 +20,5 @@ int main(int argc, char* argv[]) {
     turtle->pencolor(Color(0, 1));
     .pensize(2.0);
     PolygonDrawer drawer(6, turtle1);
-    drawer.draw_grid(1).draw_star(Point(500, 500), 200);
+    drawer.draw_grid(1).draw_polygon(Point(500, 500), 400);
 }
