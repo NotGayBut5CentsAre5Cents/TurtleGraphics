@@ -1,5 +1,17 @@
+//--------------------------------------------
+// NAME: Telerik Arsov
+// CLASS: XIb
+// NUMBER: 26
+// PROBLEM: Svg turtle implementation
+// FILE NAME: svgturtle.cc
+// FILE PURPOSE: Implementation of the svg turtle class
+// pretty self-explanatory
+//---------------------------------------------
+
 #include "svgturtle.hh"
 #include <cmath>
+
+using namespace std;
 
 SVGTurtle::SVGTurtle(double width, double height, std::ostream& out) :
 		Turtle(width, height), out_(out) {
@@ -20,6 +32,14 @@ SVGTurtle::~SVGTurtle() {
 	out_ << "</body>" << endl;
 	out_ << "</html>" << endl;
 }
+
+//--------------------------------------------
+// FUNCTION: moveto
+// moves the turtle to a point with given cordinates and leaves a trail
+// if the pen is down
+// PARAMETERS:
+// next_pos = the next position for the turtle
+//----------------------------------------------
 
 Turtle& SVGTurtle::moveto(const Point& next_pos) {
     assert(is_setup());

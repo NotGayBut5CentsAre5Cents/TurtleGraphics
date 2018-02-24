@@ -10,7 +10,6 @@
 
 #include <iostream>
 #include <cassert>
-#include <string.h>
 
 class Point {
 	double x_, y_;
@@ -172,4 +171,5 @@ public:
 
 	Turtle& dot(double size=1.0);
 };
+
 #endif

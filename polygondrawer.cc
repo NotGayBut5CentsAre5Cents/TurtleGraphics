@@ -1,3 +1,13 @@
+//--------------------------------------------
+// NAME: Telerik Arsov
+// CLASS: XIb
+// NUMBER: 26
+// PROBLEM: Turtle drawing polygons and stars?
+// FILE NAME: polygondrawer.cc
+// FILE PURPOSE: A class that can draw regular polygons
+// grids with diffirent level of detail and stars
+//---------------------------------------------
+
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
 #endif
@@ -30,6 +40,15 @@ void PolygonDrawer::calculate_external_angle() {
     external_angle_ = 180 - internal_angle_;
 }
 
+
+//--------------------------------------------
+// FUNCTION: set_num_of_sides
+// Used like a setup fuction for the class
+// PARAMETERS:
+// num_of_sides = the number of sides for the regular polygon
+// or a star(NOTE: the sides for the star mean the sides of the polygon inscrebed into the star)
+// example: 6 sides means a hexagon for the polygon and hexagram for the star
+//----------------------------------------------
 PolygonDrawer& PolygonDrawer::set_num_of_sides(int num_of_sides) {
     assert(num_of_sides > 2);
     num_of_sides_ = num_of_sides;
@@ -40,6 +59,14 @@ PolygonDrawer& PolygonDrawer::set_num_of_sides(int num_of_sides) {
     return *this;
 }
 
+//--------------------------------------------
+// FUNCTION: draw_polygon
+// Draws a regular polygon with the given parameters
+// PARAMETERS:
+// center = the cordinates of the center of the polygon
+// length = the length of one side of the polygon
+// the apothem is used to find the distance from the center to a side of the polygon  
+//----------------------------------------------
 PolygonDrawer& PolygonDrawer::draw_polygon(Point center, int length) {
     if(!turtle_->is_setup())
         turtle_->setup();
@@ -64,8 +91,15 @@ PolygonDrawer& PolygonDrawer::draw_polygon(Point center, int length) {
     return *this;
 }
 
-
-
+//--------------------------------------------
+// FUNCTION: draw_star
+// Draws a polygram (star)
+// PARAMETERS:
+// center = the cordinates of the center of the polygram
+// length = the length of one side of the polygon that is inscribed inside the polygram
+// the apothem is used to find the distance from the center to a side of the polygon
+// inscribed inside the polygram  
+//----------------------------------------------
 PolygonDrawer& PolygonDrawer::draw_star(Point center, int length) {
     if(!turtle_->is_setup())
         turtle_->setup();
@@ -88,6 +122,17 @@ PolygonDrawer& PolygonDrawer::draw_star(Point center, int length) {
     return *this;
 }
 
+//--------------------------------------------
+// FUNCTION: draw_grid
+// Draws a grid
+// PARAMETERS:
+// the depth means how many segments will the grid have
+// e.g. depth = 1  there will be 2 lines deviding the canvas 
+// into 4 equal segments
+// depth = 2 there will be 6 lines deviding the canvas 
+// into 16 equal segments
+//----------------------------------------------
+
 PolygonDrawer& PolygonDrawer::draw_grid(int depth) {
     assert(depth >= 1);
     if(!turtle_->is_setup())
@@ -109,6 +154,7 @@ PolygonDrawer& PolygonDrawer::draw_grid(int depth) {
         turtle_->set_pos(Point(width_delimiter * (i + 1), 0))
         .forward(height_);
     }
+    ///then for the y axis
     turtle_->set_pos(Point(0, 0))
     .set_heading(0);
     for(int i = 0; i < twoPowD - 1; i++) {

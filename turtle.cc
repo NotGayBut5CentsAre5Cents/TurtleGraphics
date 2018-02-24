@@ -5,9 +5,6 @@
  *      Author: lubo
  */
 
-#ifndef M_PI
-    #define M_PI 3.14159265358979323846
-#endif
 #include "turtle.hh"
 #include <cmath>
 
@@ -146,7 +143,7 @@ Turtle& Turtle::dot(double size) {
 }
 
 PSTurtle::PSTurtle(double width, double height, ostream& out) :
-        Turtle(width, height), out_(out) {
+		Turtle(width, height), out_(out) {
 }
 
 PSTurtle::~PSTurtle() {

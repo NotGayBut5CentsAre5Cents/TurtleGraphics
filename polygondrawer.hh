@@ -1,3 +1,12 @@
+//--------------------------------------------
+// NAME: Telerik Arsov
+// CLASS: XIb
+// NUMBER: 26
+// PROBLEM: Turtle drawing polygons and stars?
+// FILE NAME: polygondrawer.hh
+// FILE PURPOSE: header file for the class polygondrawer
+//---------------------------------------------
+
 #ifndef POLYGON_DRAWER_HH_
 #define POLYGON_DRAWER_HH_
 
@@ -15,9 +24,9 @@ class PolygonDrawer {
 
     void calculate_internal_angle();
     void calculate_external_angle();
-    PolygonDrawer& set_num_of_sides(int num_of_sides);
-
 public:
+
+    PolygonDrawer& set_num_of_sides(int num_of_sides);
     PolygonDrawer();
     PolygonDrawer(int num_of_sides, Turtle* turtle);
     ~PolygonDrawer();
